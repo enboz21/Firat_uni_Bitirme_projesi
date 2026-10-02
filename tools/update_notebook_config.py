@@ -1,10 +1,11 @@
 import json
-import os
+from pathlib import Path
 
-notebook_path = r"c:\Users\enes\Masaüstü\proje\yeniiii\makine öğrenmesi.ipynb"
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+notebook_path = PROJECT_ROOT / "notebooks" / "training.ipynb"
 
 def update_notebook():
-    with open(notebook_path, 'r', encoding='utf-8') as f:
+    with notebook_path.open('r', encoding='utf-8') as f:
         nb = json.load(f)
 
     found = False
@@ -28,7 +29,7 @@ def update_notebook():
                 break
     
     if found:
-        with open(notebook_path, 'w', encoding='utf-8') as f:
+        with notebook_path.open('w', encoding='utf-8') as f:
             json.dump(nb, f, indent=1, ensure_ascii=False)
         print("Notebook updated successfully.")
     else:

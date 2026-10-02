@@ -3,3 +3,8 @@ numpy
 rasterio
 matplotlib
 tqdm
+pandas
+opencv-python
+boto3
+requests
+Pillow

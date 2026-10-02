@@ -6,13 +6,15 @@ import matplotlib.pyplot as plt
 import os
 import math
 import sys
+from pathlib import Path
 # from tqdm import tqdm
 
 # Configuration
+PROJECT_ROOT = Path(__file__).resolve().parent
 CONFIG = {
     # Test etmek istediğin herhangi bir _rgb_nir.tif dosyası
     "TEST_IMAGE_PATH": r"dataset sad\T36STG_20240816T084559_row3_col0_rgb_nir.tif",
-    "MODEL_PATH": "gol_bulucu_unet_sentinel.pth",  # Eğittiğimiz model dosyası
+    "MODEL_PATH": PROJECT_ROOT / "gol_bulucu_unet_sentinel.pth",  # Eğittiğimiz model dosyası
 
     "IMG_HEIGHT": 256,
     "IMG_WIDTH": 256,
@@ -154,7 +156,7 @@ def predict_single_image(image_path):
     white_pixel_count = np.sum(binary_mask == 1)
     print(f"{white_pixel_count}")
     
-    output_dir = "outputs"
+    output_dir = PROJECT_ROOT / "outputs"
     os.makedirs(output_dir, exist_ok=True)
     
     base_name = os.path.basename(image_path)

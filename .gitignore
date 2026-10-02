@@ -1,0 +1,25 @@
+# Python environments and generated caches
+.venv/
+venv/
+venvgpu/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Generated outputs
+veriCekme+maskeleme/outputs/
+veriCekme+maskeleme/output/
+veriCekme+maskeleme/output_geojson/
+
+# IDE and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
